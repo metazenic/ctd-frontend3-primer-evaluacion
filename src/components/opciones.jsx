@@ -5,8 +5,8 @@ class Opciones extends Component {
   render() {
     return (
       <div className="opciones">
-        <Opcion opcion="A" texto="Lorem ipsum dolor sit amet." handler={this.props.handler}/>
-        <Opcion opcion="B" texto="Lorem ipsum dolor sit amet." handler={this.props.handler}/>
+        <Opcion opcion="A" texto={this.props.eventoActual.opciones.a} handler={this.props.handler}/>
+        <Opcion opcion="B" texto={this.props.eventoActual.opciones.b} handler={this.props.handler}/>
       </div>
     );
   }

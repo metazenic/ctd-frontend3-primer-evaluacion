@@ -21,7 +21,6 @@ class Layout extends Component {
         contador: this.state.contador + 1,
       });
     } else {
-      
       alert("Fin.");
       this.setState({
         ultimaOpcion: "",
@@ -33,15 +32,8 @@ class Layout extends Component {
   render() {
     return (
       <div className="layout">
-        <Historia
-          cuerpo={
-            eventos.find(
-              (evento) =>
-                evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase()
-            ).historia
-          }
-        />
-        <Opciones handler={this.handleClick} />
+        <Historia eventoActual={eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())} />
+        <Opciones eventoActual={eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())} handler={this.handleClick} />
         <Recordatorio ultimaOpcion={this.state.ultimaOpcion} />
       </div>
     );
