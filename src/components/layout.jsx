@@ -8,7 +8,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      historial: [],
+      ultimaOpcion: "",
       contador: 1,
     };
     this.handleClick = this.handleClick.bind(this);
@@ -16,14 +16,15 @@ class Layout extends Component {
 
   handleClick(opcionElegida) {
     if (this.state.contador < 5) {
-      this.state.historial.push(opcionElegida);
       this.setState({
+        ultimaOpcion: opcionElegida,
         contador: this.state.contador + 1,
       });
     } else {
+      
       alert("Fin.");
       this.setState({
-        historial: [],
+        ultimaOpcion: "",
         contador: 1,
       });
     }
@@ -36,16 +37,12 @@ class Layout extends Component {
           cuerpo={
             eventos.find(
               (evento) =>
-                evento.id ===
-                this.state.contador +
-                  (this.state.historial.length === 0
-                    ? ""
-                    : this.state.historial.at(-1))
+                evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase()
             ).historia
           }
         />
         <Opciones handler={this.handleClick} />
-        {/* <Recordatorio historial={this.state.historial} /> */}
+        <Recordatorio ultimaOpcion={this.state.ultimaOpcion} />
       </div>
     );
   }
