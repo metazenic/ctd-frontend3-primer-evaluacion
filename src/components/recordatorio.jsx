@@ -1,10 +1,14 @@
 import { Component } from "react";
+import Historial from "./historial";
 
 class Recordatorio extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      historial: []
+    };
   }
-  
+
   render() {
     return (
       <div className="recordatorio">
@@ -12,11 +16,7 @@ class Recordatorio extends Component {
           Selección anterior: {this.props.ultimaOpcion}
         </h3>
         <h4>Historial de opciones elegidas:</h4>
-        {/* <ul>
-          {this.props.historial.map((entrada) => (
-            <li>{entrada}</li>
-          ))}
-        </ul> */}
+        <Historial items={["A", "B"]/*hardcodeado*/} />
       </div>
     );
   }
