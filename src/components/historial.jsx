@@ -3,9 +3,12 @@ import { Component } from "react";
 class Historial extends Component {
   render() {
     return (
-      <ul>
-          {this.props.items.map( item => <li>{item}</li>)}
-      </ul>
+      <>
+        <h4>Historial de opciones elegidas:</h4>
+        <ul>
+          {this.props.items.map((item, index) => (<li key={index}>{item}</li>))}
+        </ul>
+      </>
     );
   }
 }
