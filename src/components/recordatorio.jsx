@@ -4,11 +4,7 @@ import Historial from "./historial";
 let historial = [];
 
 class Recordatorio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+  
   componentDidUpdate() {
     historial.push(this.props.ultimaOpcion);
   }
