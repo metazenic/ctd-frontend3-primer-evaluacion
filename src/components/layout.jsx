@@ -10,6 +10,7 @@ class Layout extends Component {
     this.state = {
       ultimaOpcion: "",
       contador: 1,
+      eventoActual: () => {return eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())}
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -22,18 +23,15 @@ class Layout extends Component {
       });
     } else {
       alert("Fin.");
-      this.setState({
-        ultimaOpcion: "",
-        contador: 1,
-      });
+      window.location.reload()
     }
   }
 
   render() {
     return (
       <div className="layout">
-        <Historia eventoActual={eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())} />
-        <Opciones eventoActual={eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())} handler={this.handleClick} />
+        <Historia eventoActual={this.state.eventoActual()} />
+        <Opciones eventoActual={this.state.eventoActual()} handler={this.handleClick} />
         <Recordatorio ultimaOpcion={this.state.ultimaOpcion} />
       </div>
     );
