@@ -1,14 +1,10 @@
-import { Component } from "react";
-
-class Opcion extends Component {
-  render() {
+function Opcion(props) {
     return (
       <div className="opcion">
-        <button className="botones" onClick={ () => this.props.handler(this.props.opcion)}>{this.props.opcion}</button>
-        <h2>{this.props.texto}</h2>
+        <button className="botones" onClick={ () => props.handler(props.opcion)}>{props.opcion}</button>
+        <h2>{props.texto}</h2>
       </div>
     );
-  }
 }
 
 export default Opcion;

@@ -1,15 +1,12 @@
-import { Component } from "react";
 import Opcion from "./opcion";
 
-class Opciones extends Component {
-  render() {
+function Opciones(props) {
     return (
       <div className="opciones">
-        <Opcion opcion="A" texto={this.props.eventoActual.opciones.a} handler={this.props.handler}/>
-        <Opcion opcion="B" texto={this.props.eventoActual.opciones.b} handler={this.props.handler}/>
+        <Opcion opcion="A" texto={props.eventoActual.opciones.a} handler={props.handler}/>
+        <Opcion opcion="B" texto={props.eventoActual.opciones.b} handler={props.handler}/>
       </div>
     );
-  }
 }
 
 export default Opciones;
