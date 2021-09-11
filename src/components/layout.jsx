@@ -7,10 +7,10 @@ import Recordatorio from "./recordatorio";
 class Layout extends Component {
   constructor(props) {
     super(props);
+    this.eventoActual = () => {return eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())}
     this.state = {
       ultimaOpcion: "",
       contador: 1,
-      eventoActual: () => {return eventos.find( (evento) => evento.id === this.state.contador + this.state.ultimaOpcion.toLowerCase())}
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -30,8 +30,8 @@ class Layout extends Component {
   render() {
     return (
       <div className="layout">
-        <Historia eventoActual={this.state.eventoActual()} />
-        <Opciones eventoActual={this.state.eventoActual()} handler={this.handleClick} />
+        <Historia eventoActual={this.eventoActual()} />
+        <Opciones eventoActual={this.eventoActual()} handler={this.handleClick} />
         <Recordatorio ultimaOpcion={this.state.ultimaOpcion} />
       </div>
     );
